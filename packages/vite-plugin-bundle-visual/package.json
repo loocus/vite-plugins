@@ -1,0 +1,57 @@
+{
+  "name": "vite-plugin-bundle-visual",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "A Vite plugin for visualizing bundle composition as an interactive treemap",
+  "author": "loocus",
+  "license": "MIT",
+  "homepage": "https://github.com/loocus/vite-plugin-bundle-visual#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loocus/vite-plugin-bundle-visual.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loocus/vite-plugin-bundle-visual/issues"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "bundle",
+    "visualizer",
+    "treemap",
+    "analyzer"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vite": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "rolldown": "1.0.0-rc.15",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.8",
+    "vite-plugin-bundle-visual-viewer": "workspace:*",
+    "vitest": "^4.1.4"
+  }
+}

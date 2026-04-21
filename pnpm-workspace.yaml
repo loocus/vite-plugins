@@ -1,0 +1,7 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
+packages:
+  - packages/vite-plugin-bundle-visual-viewer
+  - packages/vite-plugin-bundle-visual

@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2020"],
+    "rootDir": "src/plugin",
+    "types": ["node"],
+    "declarationDir": "dist",
+    "declarationMap": false,
+    "outDir": "dist",
+    "sourceMap": false
+  },
+  "include": ["src/plugin"],
+  "exclude": ["src/__test__", "src/viewer"]
+}

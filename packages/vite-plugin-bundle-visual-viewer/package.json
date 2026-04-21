@@ -1,0 +1,39 @@
+{
+  "name": "vite-plugin-bundle-visual-viewer",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bundle Visual interactive treemap viewer",
+  "exports": {
+    "./template": "./dist/index.html"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vite": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/d3-hierarchy": "^3.1.7",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-scale-chromatic": "^3.1.0",
+    "@types/d3-selection": "^3.0.11",
+    "@types/d3-transition": "^3.0.9",
+    "@types/d3-zoom": "^3.0.8",
+    "@types/node": "^25.6.0",
+    "d3-hierarchy": "^3.1.2",
+    "d3-scale": "^4.0.2",
+    "d3-scale-chromatic": "^3.1.0",
+    "d3-selection": "^3.0.0",
+    "d3-transition": "^3.0.1",
+    "d3-zoom": "^3.0.0",
+    "rolldown": "1.0.0-rc.15",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.8"
+  }
+}
