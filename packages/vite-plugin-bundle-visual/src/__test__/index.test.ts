@@ -6,8 +6,22 @@ import { resolve } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { bundleVisual } from '../plugin/index'
 
-vi.mock('vite-plugin-bundle-visual-viewer/template?raw', () => ({
-  default: '<html><script>window.__BUNDLE_DATA__ = __BUNDLE_DATA_PLACEHOLDER__</script></html>',
+vi.mock('node:fs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('node:fs')>()
+  return {
+    ...actual,
+    readFileSync: vi.fn((path: string, encoding?: string) => {
+      if (typeof path === 'string' && path.endsWith('index.html'))
+        return '<html><script>window.__BUNDLE_DATA__ = __BUNDLE_DATA_PLACEHOLDER__</script></html>'
+      return actual.readFileSync(path, encoding as BufferEncoding)
+    }),
+  }
+})
+
+vi.mock('node:module', () => ({
+  createRequire: vi.fn(() => ({
+    resolve: vi.fn(() => '/mock/viewer/dist/index.html'),
+  })),
 }))
 
 vi.mock('node:child_process', () => ({
