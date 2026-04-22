@@ -1,5 +1,7 @@
 # vite-plugin-bundle-visual
 
+[English](./README.md)
+
 一个 Vite 插件，用于生成交互式 treemap 报告，直观展示构建产物的组成结构。
 
 ![License](https://img.shields.io/npm/l/vite-plugin-bundle-visual)

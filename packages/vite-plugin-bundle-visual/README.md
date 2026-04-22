@@ -1,5 +1,7 @@
 # vite-plugin-bundle-visual
 
+[中文文档](./README.zh-CN.md)
+
 A Vite plugin that generates an interactive treemap report of your bundle composition.
 
 ![License](https://img.shields.io/npm/l/vite-plugin-bundle-visual)
