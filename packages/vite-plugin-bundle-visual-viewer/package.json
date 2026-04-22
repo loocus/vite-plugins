@@ -2,14 +2,27 @@
   "name": "vite-plugin-bundle-visual-viewer",
   "type": "module",
   "version": "0.1.0",
-  "private": true,
   "description": "Bundle Visual interactive treemap viewer",
+  "author": "loocus",
+  "license": "MIT",
+  "homepage": "https://github.com/loocus/vite-plugins#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loocus/vite-plugins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loocus/vite-plugins/issues"
+  },
   "exports": {
     "./template": "./dist/index.html"
   },
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "vite build",
     "dev": "vite",
@@ -34,6 +47,7 @@
     "d3-zoom": "^3.0.0",
     "rolldown": "1.0.0-rc.15",
     "typescript": "^6.0.2",
-    "vite": "^8.0.8"
+    "vite": "^8.0.8",
+    "vite-plugin-singlefile": "^2.0.2"
   }
 }

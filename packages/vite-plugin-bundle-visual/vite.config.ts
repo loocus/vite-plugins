@@ -25,6 +25,7 @@ export default defineConfig({
         'child_process',
         'buffer',
         'process',
+        'vite-plugin-bundle-visual-viewer',
       ],
       output: {
         exports: 'named',

@@ -19,7 +19,7 @@ function sep(toolbar: HTMLElement): void {
 }
 
 function init(): void {
-  const data: BundleData = window.__BUNDLE_DATA__
+  const data: BundleData = __BUNDLE_DATA__
 
   const app = document.getElementById('app')
   if (!app)

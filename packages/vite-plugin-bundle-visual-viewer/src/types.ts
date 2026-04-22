@@ -30,9 +30,3 @@ export interface BundleData {
     chunkSizeWarningLimit: number
   }
 }
-
-declare global {
-  interface Window {
-    __BUNDLE_DATA__: BundleData
-  }
-}
