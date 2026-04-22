@@ -1,5 +1,11 @@
 # vite-plugin-bundle-visual-viewer
 
+## 0.1.2
+
+### Patch Changes
+
+- 38cf6dc: 补充说明文档
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # vite-plugin-bundle-visual
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [38cf6dc]
+  - vite-plugin-bundle-visual-viewer@0.1.2
+
 ## 0.1.3
 
 ### Patch Changes
