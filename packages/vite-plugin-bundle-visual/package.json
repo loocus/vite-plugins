@@ -5,13 +5,13 @@
   "description": "A Vite plugin for visualizing bundle composition as an interactive treemap",
   "author": "loocus",
   "license": "MIT",
-  "homepage": "https://github.com/loocus/vite-plugin-bundle-visual#readme",
+  "homepage": "https://github.com/loocus/vite-plugins#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/loocus/vite-plugin-bundle-visual.git"
+    "url": "https://github.com/loocus/vite-plugins.git"
   },
   "bugs": {
-    "url": "https://github.com/loocus/vite-plugin-bundle-visual/issues"
+    "url": "https://github.com/loocus/vite-plugins/issues"
   },
   "keywords": [
     "vite",
