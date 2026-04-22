@@ -1,32 +1,34 @@
 # vite-plugin-bundle-visual-viewer
 
-`vite-plugin-bundle-visual` 的可视化界面，基于 D3 渲染交互式 treemap，用于分析 Vite 构建产物的模块组成与体积分布。
+[中文文档](./README.zh-CN.md)
 
-构建产物是一个**自包含的单文件 HTML**（所有 JS/CSS 均内联），通过替换其中的占位符 `__BUNDLE_DATA_PLACEHOLDER__` 注入构建数据后即可独立运行，无需任何外部依赖。
+The interactive treemap viewer for `vite-plugin-bundle-visual`. Renders bundle composition as a zoomable, pannable treemap using D3.
 
-## 数据格式
+The build output is a **self-contained single-file HTML** with all JS and CSS inlined. It runs standalone with no external dependencies — just replace the placeholder `__BUNDLE_DATA_PLACEHOLDER__` with your bundle data and open it in a browser.
 
-注入的数据需符合以下结构：
+## Data Format
+
+The injected data must conform to the following structure:
 
 ```typescript
 interface BundleData {
-  root: ModuleNode // 模块树根节点
-  chunks: ChunkInfo[] // chunk 列表
+  root: ModuleNode // module tree root
+  chunks: ChunkInfo[] // chunk list
   meta: {
-    totalSize: number // 总体积（字节）
-    totalGzipSize?: number // gzip 后总体积（字节，可选）
-    buildTime: number // 构建时间戳（ms）
-    chunkSizeWarningLimit: number // chunk 体积警告阈值（字节）
+    totalSize: number // total size in bytes
+    totalGzipSize?: number // total gzip size in bytes (optional)
+    buildTime: number // build timestamp (ms)
+    chunkSizeWarningLimit: number // chunk size warning threshold in bytes
   }
 }
 
 interface ModuleNode {
   id: string
   label: string
-  size: number // 原始体积（字节）
+  size: number // original size in bytes
   gzipSize?: number
   children?: ModuleNode[]
-  duplicatedInChunks?: string[] // 出现在多个 chunk 中时填充
+  duplicatedInChunks?: string[] // set when module appears in multiple chunks
 }
 
 interface ChunkInfo {
@@ -38,11 +40,11 @@ interface ChunkInfo {
 }
 ```
 
-## 使用方式
+## Usage
 
-### 方式一：运行时读取文件（推荐）
+### Option 1: Runtime file read (recommended)
 
-适用于 Node.js 插件场景。通过 `createRequire` 定位包内的 HTML 文件路径，再用 `fs.readFileSync` 读取内容，最后替换占位符写入目标位置。
+Suitable for Node.js plugin scenarios. Use `createRequire` to resolve the HTML file path from `node_modules`, read it with `fs.readFileSync`, replace the placeholder, then write to the target location.
 
 ```typescript
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -58,11 +60,11 @@ const html = template.replace(PLACEHOLDER, () => JSON.stringify(bundleData))
 writeFileSync('dist/bundle-visual.html', html, 'utf8')
 ```
 
-`require.resolve` 会在运行时从 `node_modules` 中定位文件，无需关心包的安装路径，也不依赖构建顺序。
+`require.resolve` locates the file from `node_modules` at runtime — no hardcoded paths, no build order dependency.
 
-### 方式二：静态 import（Vite 构建场景）
+### Option 2: Static import (Vite build pipeline)
 
-在 Vite 项目中可以直接 import HTML 文件内容，再通过环境变量或字符串替换注入数据。
+In a Vite project you can import the HTML as a raw string and inject data via string replacement.
 
 ```typescript
 import template from 'vite-plugin-bundle-visual-viewer/template?raw'
@@ -71,13 +73,17 @@ const PLACEHOLDER = '__BUNDLE_DATA_PLACEHOLDER__'
 const html = template.replace(PLACEHOLDER, () => JSON.stringify(bundleData))
 ```
 
-> 注意：`?raw` 是 Vite 特有的导入修饰符，仅在 Vite 构建管道中有效。
+> `?raw` is a Vite-specific import modifier and only works inside the Vite build pipeline.
 
-## 本地开发
+## Local Development
 
 ```bash
-pnpm dev      # 启动开发服务器，使用内置 mock 数据预览
-pnpm build    # 构建单文件 HTML 到 dist/index.html
+pnpm dev      # start dev server with built-in mock data
+pnpm build    # build self-contained HTML to dist/index.html
 ```
 
-开发模式下，`__BUNDLE_DATA__` 由 `vite.config.ts` 中的 `define` 注入 mock 数据；构建时替换为占位符字符串，由消费方在运行时填充真实数据。
+In dev mode, `__BUNDLE_DATA__` is injected with mock data via `define` in `vite.config.ts`. In build mode it is replaced with the placeholder string, ready for the consumer to fill in real data at runtime.
+
+## License
+
+[MIT](../../LICENSE)
