@@ -1,5 +1,13 @@
 # vite-plugin-bundle-visual
 
+## 0.1.3
+
+### Patch Changes
+
+- 5dd0b86: 重构 bundle-visual 使其不再内联 viewer 打包产物
+- Updated dependencies [5dd0b86]
+  - vite-plugin-bundle-visual-viewer@0.1.1
+
 ## 0.1.2
 
 ### Patch Changes
