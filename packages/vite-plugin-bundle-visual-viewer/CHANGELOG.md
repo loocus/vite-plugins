@@ -1,5 +1,11 @@
 # vite-plugin-bundle-visual-viewer
 
+## 0.1.3
+
+### Patch Changes
+
+- 5844862: 文档更新
+
 ## 0.1.2
 
 ### Patch Changes
