@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "rootDir": "src",
+    "types": ["node"],
+    "declarationDir": "dist",
+    "declarationMap": false,
+    "outDir": "dist",
+    "sourceMap": false
+  },
+  "include": ["src"],
+  "exclude": ["src/__test__", "test-fixtures"]
+}
