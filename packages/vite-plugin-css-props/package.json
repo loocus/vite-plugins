@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-css-props",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Vite plugin to generate JS/CSS/SCSS bindings and .d.ts for CSS Custom Properties from a single config file",
   "author": "loocus",
   "license": "MIT",
