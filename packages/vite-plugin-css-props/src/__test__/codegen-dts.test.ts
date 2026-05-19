@@ -152,6 +152,17 @@ describe('generateDts', () => {
     expect(dts).toContain('\'var(--app-spacingMd)\'')
   })
 
+  it('should prepend eslint-disable and ts-nocheck banners to bypass lint and type checking on generated file', () => {
+    // #given
+    const config = normalizeCssConfig({ colors: { primary: '#1677ff' } })
+
+    // #when
+    const dts = generateDts(config)
+
+    // #then
+    expect(dts.startsWith('/* eslint-disable */\n// @ts-nocheck\n')).toBe(true)
+  })
+
   it('should declare alpha / lighten / darken / mix color operation signatures', () => {
     // #given
     const config = normalizeCssConfig({ colors: { primary: '#1677ff' } })
